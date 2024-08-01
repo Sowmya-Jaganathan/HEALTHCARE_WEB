@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        .top {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        .logo {
+            background-color: #fff;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo table {
+            width: 100%;
+        }
+
+        .logo td:first-child {
+            font-size: 32px;
+            font-family: forte;
+            color: #007bff;
+        }
+
+        .bottom_up {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 0 auto;
+            max-width: 600px;
+        }
+
+        .bottom_up form {
+            text-align: left;
+        }
+
+        .bottom_up label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .bottom_up input[type="text"],
+        .bottom_up input[type="email"],
+        .bottom_up input[type="tel"],
+        .bottom_up input[type="password"],
+        .bottom_up select,
+        .bottom_up textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        .bottom_up input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .bottom_up input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .bottom_up select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url('data:image/svg+xml;utf8,<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill="#000" d="M12.5 8.75L10 11.25l-2.5-2.5L5 10l5 5 5-5-2.5-2.5z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 10px top 50%;
+            background-size: 16px auto;
+            padding-right: 40px;
+        }
+    </style>
+    <script>
+        // JavaScript functions here...
+    </script>
+</head>
+
+<body>
+
+    <div class="top">
+        <div>
+            Contact Us +91 96366 20000 / 01 | QuickCare@hospital.com
+        </div>
+    </div>
+
+    <div class="logo">
+        <table>
+            <tr>
+                <td width="600px"> <font color="#007bff"> QuickCare </font><font color="#000"> Hospital</font> </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="bottom_up">
+        <div>
+            <center>Make an Appointment</center>&nbsp&nbsp&nbsp
+
+            <form action={{url_for('book1')}} method='POST'  id="appointmentForm" action="confirmation.html" >
+
+           
+                <table>
+
+                    <tr>
+                        <td width="500px"> </td>
+                        <td><label for="firstName">First Name:</label></td>
+                        <td><input type="text" id="firstName" name="firstName" placeholder="Enter your first name" required></td>
+                        <td><label for="lastName">Last Name:</label></td>
+                        <td><input type="text" id="lastName" name="lastName" placeholder="Enter your last name" required></td>
+                    </tr>
+                    <tr height="30px"></tr>
+                    <tr>
+                        <td width="500px"> </td>
+                        <td><label for="email">Email:</label></td>
+                        <td><input type="email" id="email" name="email" placeholder="Enter your email" required></td>
+                        <td><label for="tel">Phone No:</label></td>
+                        <td><input type="text" id="tel" name="tel" placeholder="Enter your phone number" required></td>
+                    </tr>
+                    <tr height="30px"></tr>
+                    <tr>
+                        <td width="500px"> </td>
+                        <td><label for="gender">Gender:</label></td>
+                        <td>
+                            <select id="gender" name="gender" required>
+                                <option value="">-- Gender --</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                        </td>
+                        <td><label for="age">Age:</label></td>
+                        <td><input type="number" id="age" name="age" placeholder="Enter your age" required></td>
+                    </tr>
+                    <tr height="30px"></tr>
+                    <tr>
+                        <td width="500px"> </td>
+                        <td><label for="bloodGroup">Blood Group:</label></td>
+                        <td>
+                            <select id="bloodGroup" name="bloodGroup" required>
+                                <option value="">-- Blood Group --</option>
+                                <option value="A+">A+</option>
+                                <option value="A-">A-</option>
+                                <option value="B+">B+</option>
+                                <option value="B-">B-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
+                                <option value="O+">O+</option>
+                                <option value="O-">O-</option>
+                            </select>
+                        </td>
+                        <td>
+                            <label for="appointmentType">Appointment Type:</label>
+                            <select id="appointmentType" name="appointmentType" onchange="handleAppointmentType()" required>
+                                <option value="routine-checkup">Routine Check-up</option>
+                                <option value="follow-up">Follow-up</option>
+                                <option value="health-concern">Specific Health Concern</option>
+                            </select>
+
+                            <div id="healthConcernContainer" style="display: none;">
+                                <label for="healthConcern">Health Concern:</label>
+                                <select id="healthConcern" name="healthConcern">
+                                    <!-- Options will be dynamically added here based on user selection -->
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr height="30px"></tr>
+                    <tr>
+                        <td width="500px"> </td>
+                        <td colspan="3"><label for="notificationPreference">Notification Preference:</label></td>
+                    </tr>
+                    <tr>
+                        <td width="500px"> </td>
+                        <td colspan="3">
+                            <select id="notificationPreference" name="notificationPreference" required>
+                                <option value="">-- Notification Preference --</option>
+                                <option value="email">Email</option>
+                                <option value="sms">SMS</option>
+                                <option value="phone">Phone Call</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr height="30px"></tr>
+                    <tr>
+                        <td width="500px"> </td>
+                        <td>
+                            <label for="appointmentDate">Appointment Date:</label>
+                            <input type="date" id="appointmentDate" name="appointmentDate" required>
+                        </td>
+                        <td>
+                            <label for="appointmentTime">Appointment Time:</label>
+                            <input type="time" id="appointmentTime" name="appointmentTime" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="500px"> </td>
+                        <td colspan="3">
+                            <label for="anyConcern">Any Concern:</label>
+                            <textarea id="anyConcern" name="anyConcern" placeholder="Enter any concern"></textarea>
+                        </td>
+                    </tr>
+                    <tr height="30px"></tr>
+                    <tr>
+                        <td width="500px"></td>
+                        <td colspan="3">
+                            <button type="submit">SUBMIT</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function handleAppointmentType() {
+            var appointmentType = document.getElementById("appointmentType").value;
+            var healthConcernContainer = document.getElementById("healthConcernContainer");
+
+            // Show/hide the healthConcernContainer based on the selected appointmentType
+            healthConcernContainer.style.display = (appointmentType === "health-concern") ? "block" : "none";
+
+            // Populate healthConcern dropdown based on the selected appointmentType
+            var healthConcernDropdown = document.getElementById("healthConcern");
+            healthConcernDropdown.innerHTML = ""; // Clear previous options
+
+            if (appointmentType === "health-concern") {
+                // Add specific health concerns based on the user's selection
+                var healthConcerns = getHealthConcerns();
+                healthConcerns.forEach(function (concern) {
+                    var option = document.createElement("option");
+                    option.text = concern;
+                    healthConcernDropdown.add(option);
+                });
+            }
+        }
+
+        function getHealthConcerns() {
+            // Replace this with your logic to fetch health concerns based on the user's selection
+            // For example, you can fetch it from a database or use a predefined list
+            return ["Fever", "Headache", "Cough", "Pain", "Other"];
+        }
+    </script>
+
+</body>
+
+</html>

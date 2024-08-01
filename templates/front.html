@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>UK Hospital</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        
+        .top {
+            background-color: #428bca;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        
+        .logo {
+            background-color: #f2f2f2;
+            padding: 20px 0;
+            text-align: center;
+        }
+        
+        .logo h1 {
+            font-size: 50px;
+            font-family: 'forte', cursive;
+            margin: 0;
+        }
+        
+        .logo a {
+            font-size: 20px;
+            text-decoration: none;
+            color: #428bca;
+            margin: 0 10px;
+        }
+        
+        .middle {
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .middle img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="top">
+        <div>
+            Contact Us +91 96366 20000 / 01 | QuickCare@hospital.com
+        </div>
+    </div>
+
+    <div class="logo">
+        <div>
+            <h1>
+                <font color="#428bca">QuickCare</font> <font color="#000">Hospital</font>
+            </h1>
+            <a href="{{url_for('signup')}}">SIGNUP</a>
+            <a href="{{url_for('login')}}">LOGIN</a>
+            <a href="contact.html">CONTACT</a>
+            <a href="about.html">ABOUT</a>
+
+
+        </div>
+    </div>
+
+    <div class="middle">
+        <img src="/img/a.jpg" align="right">
+    </div>
+</body>
+</html>

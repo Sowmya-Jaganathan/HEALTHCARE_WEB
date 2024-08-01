@@ -1,0 +1,50 @@
+.tp_widget {
+    background: #fff;
+    box-shadow: 6px 6px 70px rgb(16 40 81 / 23%);
+    padding: 20px 10px;
+    height: 146px;
+    border-radius: 15px;
+    display: flex;
+    text-decoration: none;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px; /* Adjust this value to control the spacing between widgets */
+}
+
+.tp_widget a {
+    text-decoration: none;
+    color: #007C9D;
+    font-weight: 600;
+}
+
+.tp_widget a:hover {
+    text-decoration: underline;
+}
+
+body, div, a, p, span {
+    user-select: text !important;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    width: 100%;
+    padding-right: calc(var(--bs-gutter-x) * 0.5);
+    padding-left: calc(var(--bs-gutter-x) * 0.5);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+body {
+    font-family: 'Figtree', sans-serif;
+    background-color: #ffffff;
+    font-size: 16px;
+    color: #51565D;
+    overflow-x: hidden;
+}
